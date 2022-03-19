@@ -10,7 +10,11 @@ import SwiftUI
 
 // يجب عمل هيكل وكائنات من الهيكل
 
-
+var people = [
+    userCovidInfo(fullName: "Joud", area:  "اليرموك", numberOfDoses: 0),
+    userCovidInfo(fullName: "Fatmah", area: "قرطبه", numberOfDoses: 3),
+    userCovidInfo(fullName: "Deemah", area: "الجهراء", numberOfDoses: 2)
+]
 struct ContentView: View {
     var body: some View {
         ZStack{
@@ -25,36 +29,14 @@ struct ContentView: View {
                     .font(.system(size: 30, weight: .bold, design: .default))
                     .padding()
                 // name of new cases
-                VStack{
-        // الحالة الأولى
-                // الاسم
-               Text("")
-// المنطقة
-                Text("")
-                    // عدد الجرعات
-               Text("")
-
-                Divider()
-                }
-                VStack{
-        // الحالة الثانية
-                // الاسم
-               Text("")
-                // المنطقة
-               Text("")
-    // عدد الجرعات
-               Text("")
-
-                Divider()
-                }
-                VStack{
+                List(people,id:\.id){ i in
               // الحالة الثالثة
                       // الاسم
-                     Text("")
+                     Text("Name: \(i.fullName)")
                       // المنطقة
-                     Text("")
+                     Text("Area: \(i.area)")
           // عدد الجرعات
-                     Text("")
+                     Text("Number of Doses: \(i.numberOfDoses)")
                 }
                 Spacer()
                 HStack{
